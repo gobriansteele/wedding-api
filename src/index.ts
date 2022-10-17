@@ -1,4 +1,9 @@
 import express from 'express'
+import chalk from 'chalk'
+import { foo } from './test'
+
+foo()
+
 const app = express()
 
 const PORT = '3000'
@@ -17,5 +22,6 @@ app.get('/guest/:id', (req, res) => {
 })
 
 app.listen(PORT, () => {
+  console.log(chalk.red('is this thing really on'))
   console.log(`http://localhost:${PORT}`)
 })

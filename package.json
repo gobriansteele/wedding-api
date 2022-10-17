@@ -1,10 +1,12 @@
 {
   "name": "wedding-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
     "build": "rm -rf ./dist && tsc",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -26,9 +29,11 @@
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
-    "ts-node-dev": "^2.0.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   }
 }
